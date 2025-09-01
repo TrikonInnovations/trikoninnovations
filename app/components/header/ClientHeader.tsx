@@ -15,7 +15,7 @@ function ClientHeader() {
     { name: "Home", path: "/" },
     { name: "About Us", path: "/aboutus" },
     { name: "Services", path: "/services" },
-    { name: "Teams", path: "/teams" },
+    { name: "Testimonials", path: "/testimonials" },
   ];
 
   return (
