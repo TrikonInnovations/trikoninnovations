@@ -1,5 +1,6 @@
 import React from "react";
-import { Star, Quote, Building, CheckCircle } from "lucide-react";
+import Link from "next/link";
+import { Star, Quote, Building, CheckCircle, Sparkles } from "lucide-react";
 
 function Page() {
   const testimonials = [
@@ -14,6 +15,17 @@ function Page() {
       project: "E-commerce Platform Development",
     },
     {
+      name: "Priya Sharma",
+      role: "Head of Operations",
+      company: "Nexus Legal",
+      image: "/api/placeholder/100/100",
+      rating: 5,
+      content:
+        "The RAG-powered document assistant Trikon built for us is a game-changer. Our team now finds answers from thousands of contracts in seconds instead of hours. The AI is accurate and always cites sources—exactly what we needed for compliance.",
+      project: "RAG-Powered Document Assistant",
+      tag: "AI",
+    },
+    {
       name: "Michael Chen",
       role: "Founder",
       company: "InnovateLab",
@@ -22,6 +34,17 @@ function Page() {
       content:
         "Working with Trikon was a game-changer for our startup. Their expertise in mobile app development and their attention to detail helped us launch our product ahead of schedule. Highly recommended!",
       project: "Mobile App Development",
+    },
+    {
+      name: "Alex Rivera",
+      role: "CTO",
+      company: "DataForge",
+      image: "/api/placeholder/100/100",
+      rating: 5,
+      content:
+        "We needed an internal knowledge hub that could answer questions from our wikis and runbooks. Trikon delivered a RAG solution that our support and engineering teams use daily. Response time to internal queries dropped by 70%.",
+      project: "Internal Knowledge Hub (RAG)",
+      tag: "AI",
     },
     {
       name: "Emily Rodriguez",
@@ -52,6 +75,17 @@ function Page() {
       content:
         "The UI/UX design work by Trikon is simply brilliant. They understood our brand perfectly and created an intuitive user experience that our customers love. The conversion rates improved dramatically.",
       project: "UI/UX Design",
+    },
+    {
+      name: "Marcus Webb",
+      role: "VP of Product",
+      company: "TechDocs Inc.",
+      image: "/api/placeholder/100/100",
+      rating: 5,
+      content:
+        "Our customers can now chat with their PDFs and get instant, cited answers. Trikon's RAG implementation is production-ready and scales beautifully. We've seen a big jump in product engagement and support deflection.",
+      project: "Smart Document Chat (RAG)",
+      tag: "AI",
     },
     {
       name: "James Wilson",
@@ -143,8 +177,14 @@ function Page() {
                   &ldquo;{testimonial.content}&rdquo;
                 </p>
 
-                {/* Project Type */}
-                <div className="mb-6">
+                {/* Project Type & Tag */}
+                <div className="mb-6 flex flex-wrap items-center gap-2">
+                  {testimonial.tag && (
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-violet-50 text-violet-700 text-sm font-medium rounded-full border border-violet-200">
+                      <Sparkles className="h-3.5 w-3.5" />
+                      {testimonial.tag}
+                    </span>
+                  )}
                   <span className="inline-flex items-center gap-2 px-3 py-1 bg-blue-50 text-blue-700 text-sm font-medium rounded-full">
                     <CheckCircle className="h-4 w-4" />
                     {testimonial.project}
@@ -190,9 +230,12 @@ function Page() {
             <button className="bg-black text-white px-8 py-4 rounded-lg font-medium hover:bg-gray-800 transition-colors text-lg">
               Start Your Project
             </button>
-            <button className="border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-lg font-medium hover:border-gray-400 hover:bg-gray-50 transition-colors text-lg">
+            <Link
+              href="/our-work"
+              className="border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-lg font-medium hover:border-gray-400 hover:bg-gray-50 transition-colors text-lg inline-flex items-center justify-center"
+            >
               View Our Work
-            </button>
+            </Link>
           </div>
         </div>
       </div>

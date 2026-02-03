@@ -1,6 +1,7 @@
 "use client";
 import { Sparkles, ArrowRight, Star, Zap, Code } from "lucide-react";
 import { useState } from "react";
+import Link from "next/link";
 import ContactusForm from "../ContactusForm";
 
 export default function ClientHome() {
@@ -59,9 +60,12 @@ export default function ClientHome() {
                 Start Your Project
                 <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </button>
-              <button className="border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-xl font-medium hover:border-gray-400 hover:bg-gray-50 transition-all duration-300 text-lg">
+              <Link
+                href="/our-work"
+                className="border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-xl font-medium hover:border-gray-400 hover:bg-gray-50 transition-all duration-300 text-lg inline-flex items-center justify-center"
+              >
                 View Our Work
-              </button>
+              </Link>
             </div>
           </div>
 
