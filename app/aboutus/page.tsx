@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import {
   Users,
   Target,
@@ -84,13 +85,19 @@ function Page() {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <button className="bg-black text-white px-8 py-4 rounded-lg font-medium hover:bg-gray-800 transition-colors text-lg flex items-center gap-2">
+                <Link
+                  href="/contactus"
+                  className="bg-black text-white px-8 py-4 rounded-lg font-medium hover:bg-gray-800 transition-colors text-lg inline-flex items-center gap-2 justify-center"
+                >
                   Get Started
                   <ArrowRight className="h-5 w-5" />
-                </button>
-                <button className="border-2 border-black text-black px-8 py-4 rounded-lg font-medium hover:bg-black hover:text-white transition-colors text-lg">
+                </Link>
+                <a
+                  href="#values"
+                  className="border-2 border-black text-black px-8 py-4 rounded-lg font-medium hover:bg-black hover:text-white transition-colors text-lg text-center"
+                >
                   Learn More
-                </button>
+                </a>
               </div>
             </div>
 
@@ -148,7 +155,7 @@ function Page() {
       </div>
 
       {/* Values Section */}
-      <div className="py-20">
+      <div id="values" className="py-20 scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
@@ -210,9 +217,12 @@ function Page() {
                 <p className="text-blue-100 mb-6">
                   Let&apos;s discuss how we can help bring your ideas to life
                 </p>
-                <button className="bg-white text-gray-900 px-6 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors">
+                <Link
+                  href="/contactus"
+                  className="inline-block bg-white text-gray-900 px-6 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors"
+                >
                   Start Conversation
-                </button>
+                </Link>
               </div>
             </div>
           </div>
@@ -230,9 +240,12 @@ function Page() {
             digital opportunities, or simply seek expert advice, we&apos;re here
             to help.
           </p>
-          <button className="bg-black text-white px-8 py-4 rounded-lg font-medium hover:bg-gray-800 transition-colors text-lg">
+          <Link
+            href="/contactus"
+            className="inline-block bg-black text-white px-8 py-4 rounded-lg font-medium hover:bg-gray-800 transition-colors text-lg"
+          >
             Get In Touch
-          </button>
+          </Link>
         </div>
       </div>
     </div>
