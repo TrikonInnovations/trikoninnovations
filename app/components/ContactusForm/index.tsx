@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Mail, Phone, MapPin, User, MessageSquare, X } from "lucide-react";
+import { Mail, MapPin, User, MessageSquare, X } from "lucide-react";
 
 interface ContactusFormProps {
   isOpen: boolean;
@@ -11,7 +11,7 @@ interface ContactusFormProps {
 function ContactusForm({ isOpen, onClose }: ContactusFormProps) {
   const [formData, setFormData] = useState({
     fullName: "",
-    contactNumber: "",
+    email: "",
     address: "",
     description: "",
   });
@@ -41,7 +41,7 @@ function ContactusForm({ isOpen, onClose }: ContactusFormProps) {
 New Contact Form Submission
 
 Full Name: ${formData.fullName}
-Contact Number: ${formData.contactNumber}
+Email: ${formData.email}
 Address: ${formData.address}
 Description: ${formData.description}
 
@@ -58,7 +58,7 @@ Submitted on: ${new Date().toLocaleString()}
       setSubmitStatus("success");
       setFormData({
         fullName: "",
-        contactNumber: "",
+        email: "",
         address: "",
         description: "",
       });
@@ -78,7 +78,7 @@ Submitted on: ${new Date().toLocaleString()}
     setSubmitStatus("idle");
     setFormData({
       fullName: "",
-      contactNumber: "",
+      email: "",
       address: "",
       description: "",
     });
@@ -141,25 +141,25 @@ Submitted on: ${new Date().toLocaleString()}
                 </div>
               </div>
 
-              {/* Contact Number */}
+              {/* Email */}
               <div className="relative">
                 <label
-                  htmlFor="contactNumber"
+                  htmlFor="email"
                   className="block text-sm font-medium text-gray-700 mb-2"
                 >
-                  Contact Number *
+                  Email *
                 </label>
                 <div className="relative">
-                  <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
+                  <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
                   <input
-                    type="number"
-                    id="contactNumber"
-                    name="contactNumber"
-                    value={formData.contactNumber}
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={formData.email}
                     onChange={handleInputChange}
                     required
                     className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-black focus:border-black transition-colors text-black"
-                    placeholder="Enter your contact number"
+                    placeholder="Enter your email"
                   />
                 </div>
               </div>

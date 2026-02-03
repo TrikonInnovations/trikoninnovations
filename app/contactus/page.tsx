@@ -1,5 +1,5 @@
 import React from "react";
-import { Mail, Phone, MapPin, Clock, MessageSquare, Send } from "lucide-react";
+import { Mail, Phone, MapPin, Clock, MessageSquare, Send, User } from "lucide-react";
 
 function Page() {
   const contactInfo = [
@@ -12,14 +12,14 @@ function Page() {
     {
       icon: <Phone className="h-6 w-6 text-green-600" />,
       title: "Call Us",
-      details: "+1 (555) 123-4567",
+      details: "+977-9704528366",
       description: "Mon-Fri from 9am to 6pm",
     },
     {
       icon: <MapPin className="h-6 w-6 text-purple-600" />,
       title: "Visit Us",
-      details: "123 Innovation Street",
-      description: "Tech District, City, State 12345",
+      details: "Gokarneshowr, Kathmandu",
+      description: "Attarkhel, Jorpati, Kathmandu",
     },
     {
       icon: <Clock className="h-6 w-6 text-orange-600" />,
@@ -95,7 +95,7 @@ function Page() {
                     Full Name *
                   </label>
                   <div className="relative">
-                    <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
+                    <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
                     <input
                       type="text"
                       id="fullName"
@@ -107,23 +107,23 @@ function Page() {
                   </div>
                 </div>
 
-                {/* Contact Number */}
+                {/* Email */}
                 <div className="relative">
                   <label
-                    htmlFor="contactNumber"
+                    htmlFor="email"
                     className="block text-sm font-medium text-gray-700 mb-2"
                   >
-                    Contact Number *
+                    Email *
                   </label>
                   <div className="relative">
-                    <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
+                    <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
                     <input
-                      type="tel"
-                      id="contactNumber"
-                      name="contactNumber"
+                      type="email"
+                      id="email"
+                      name="email"
                       required
                       className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors text-black bg-white"
-                      placeholder="Enter your contact number"
+                      placeholder="Enter your email"
                     />
                   </div>
                 </div>

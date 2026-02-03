@@ -1,59 +1,15 @@
 import React from "react";
+import Link from "next/link";
 import {
   ArrowRight,
-  Globe,
-  Code,
-  TrendingUp,
   Palette,
   Smartphone,
   BarChart3,
 } from "lucide-react";
+import { getServiceCards } from "./services-data";
 
 function Page() {
-  const services = [
-    {
-      title: "Website Design",
-      description:
-        "Create stunning, responsive websites that captivate your audience and drive conversions.",
-      icon: <Globe className="h-12 w-12 text-blue-600" />,
-      features: [
-        "Responsive Design",
-        "User Experience (UX)",
-        "Modern UI/UX",
-        "SEO Optimization",
-        "Performance Optimization",
-      ],
-      color: "from-blue-500 to-blue-600",
-    },
-    {
-      title: "Software Development",
-      description:
-        "Custom software solutions tailored to your business needs and requirements.",
-      icon: <Code className="h-12 w-12 text-green-600" />,
-      features: [
-        "Custom Applications",
-        "Web Applications",
-        "Mobile Apps",
-        "API Development",
-        "Database Design",
-      ],
-      color: "from-green-500 to-green-600",
-    },
-    {
-      title: "Digital Marketing",
-      description:
-        "Strategic digital marketing solutions to grow your online presence and reach.",
-      icon: <TrendingUp className="h-12 w-12 text-purple-600" />,
-      features: [
-        "Social Media Marketing",
-        "Content Marketing",
-        "SEO & SEM",
-        "Email Marketing",
-        "Analytics & Reporting",
-      ],
-      color: "from-purple-500 to-purple-600",
-    },
-  ];
+  const services = getServiceCards();
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white py-20">
@@ -72,51 +28,55 @@ function Page() {
 
         {/* Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-          {services.map((service, index) => (
-            <div
-              key={index}
-              className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 overflow-hidden"
-            >
-              {/* Card Header */}
+          {services.map((service) => {
+            const Icon = service.icon;
+            return (
               <div
-                className={`bg-gradient-to-r ${service.color} p-8 text-white`}
+                key={service.slug}
+                className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 overflow-hidden"
               >
-                <div className="flex items-center justify-between mb-4">
-                  {service.icon}
-                  <ArrowRight className="h-6 w-6 opacity-80" />
-                </div>
-                <h3 className="text-2xl font-bold mb-2">{service.title}</h3>
-                <p className="text-white/90 text-sm leading-relaxed">
-                  {service.description}
-                </p>
-              </div>
-
-              {/* Card Body */}
-              <div className="p-8">
-                <h4 className="text-lg font-semibold text-gray-900 mb-4">
-                  What we offer:
-                </h4>
-                <ul className="space-y-3">
-                  {service.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-start">
-                      <ArrowRight className="h-4 w-4 text-green-500 mt-1 mr-3 flex-shrink-0" />
-                      <span className="text-gray-700">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Card Footer */}
-              <div className="px-8 pb-8">
-                <button
-                  className={`w-full bg-gradient-to-r ${service.color} text-white py-3 px-6 rounded-lg font-medium hover:opacity-90 transition-opacity flex items-center justify-center gap-2`}
+                {/* Card Header */}
+                <div
+                  className={`bg-gradient-to-r ${service.color} p-8 text-white`}
                 >
-                  Learn More
-                  <ArrowRight className="h-4 w-4" />
-                </button>
+                  <div className="flex items-center justify-between mb-4">
+                    <Icon className="h-12 w-12 text-white" />
+                    <ArrowRight className="h-6 w-6 opacity-80" />
+                  </div>
+                  <h3 className="text-2xl font-bold mb-2">{service.title}</h3>
+                  <p className="text-white/90 text-sm leading-relaxed">
+                    {service.description}
+                  </p>
+                </div>
+
+                {/* Card Body */}
+                <div className="p-8">
+                  <h4 className="text-lg font-semibold text-gray-900 mb-4">
+                    What we offer:
+                  </h4>
+                  <ul className="space-y-3">
+                    {service.features.map((feature, featureIndex) => (
+                      <li key={featureIndex} className="flex items-start">
+                        <ArrowRight className="h-4 w-4 text-green-500 mt-1 mr-3 flex-shrink-0" />
+                        <span className="text-gray-700">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Card Footer */}
+                <div className="px-8 pb-8">
+                  <Link
+                    href={`/services/${service.slug}`}
+                    className={`block w-full bg-gradient-to-r ${service.color} text-white py-3 px-6 rounded-lg font-medium hover:opacity-90 transition-opacity flex items-center justify-center gap-2 text-center`}
+                  >
+                    Learn More
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         {/* Additional Services Section */}
@@ -173,9 +133,12 @@ function Page() {
             Let&apos;s discuss how we can help transform your business with our
             services
           </p>
-          <button className="bg-black text-white px-8 py-4 rounded-lg font-medium hover:bg-gray-800 transition-colors text-lg">
+          <Link
+            href="/contactus"
+            className="inline-block bg-black text-white px-8 py-4 rounded-lg font-medium hover:bg-gray-800 transition-colors text-lg"
+          >
             Get a Free Consultation
-          </button>
+          </Link>
         </div>
       </div>
     </div>
