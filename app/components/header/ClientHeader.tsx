@@ -13,6 +13,7 @@ function ClientHeader() {
 
   const navItems = [
     { name: "Home", path: "/" },
+    { name: "Our Work", path: "/our-work" },
     { name: "About Us", path: "/aboutus" },
     { name: "Services", path: "/services" },
     { name: "Testimonials", path: "/testimonials" },
